@@ -24,3 +24,27 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+.green{
+    color: green;
+  }
+  
+  .red{
+    color: red;
+  }
+  .grey {
+    color: grey;
+  }
+  .blue{
+    --background: rgb(0,33,87);
+  }
+  .white{
+    color: white;
+  }
+  .light-blue{
+    color : rgb(124,181,236)
+  }
+
+.font-large{
+  font-size: 1.5rem;
+}

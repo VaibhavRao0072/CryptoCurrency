@@ -1,20 +1,24 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
+<ion-header [translucent]="true" >
+  <ion-toolbar class="blue">
+    <ion-title class="white">
+      Crypto Currency List
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+    <ion-list *ngIf="responseData.length >0">
+      <ion-item *ngFor="let crypt of responseData" (click)="goToDetails(crypt)">
+        <ion-label>
+          <h2><b>{{ crypt.name }}</b></h2>
+          <h5 class="grey">MCap : {{ crypt.quote.USD.market_cap }}</h5>
+        </ion-label>
+        <ion-label slot="end" class="ion-text-right">
+          <h2><b>{{ crypt.quote.USD.price | currency}}</b></h2>
+          <h5 [ngClass]="crypt.quote.USD.percent_change_24h > 0 ? 'green' : 'red'">{{ crypt.quote.USD.percent_change_24h}}%</h5>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+    <br>
+    <ion-button expand="block" (click)="getListOfCrypto()" *ngIf="showTryAgain">Refresh</ion-button>   
 </ion-content>

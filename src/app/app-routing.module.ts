@@ -11,6 +11,10 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'cryto-details',
+    loadChildren: () => import('./cryto-details/cryto-details.module').then( m => m.CrytoDetailsPageModule)
+  },
 ];
 
 @NgModule({

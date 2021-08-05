@@ -1,0 +1,38 @@
+<ion-header [translucent]="true" >
+    <ion-toolbar class="blue">
+      <ion-buttons slot="start" class="white">
+        <ion-back-button defaultHref="/"></ion-back-button>
+      </ion-buttons>
+      <ion-title class="white">
+        {{detailProduct.name}}
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content>
+  <div class="ion-padding">
+   
+    
+  
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>
+          <ion-label>Chart For Percentage vs Time</ion-label><br>
+          <ion-label class="font-large light-blue">{{detailProduct.quote.USD.price | currency}}</ion-label>
+        </ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <div id="container" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Chart For Volume Traded</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <div id="barChart" style="width:100%; height:400px;"></div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
