@@ -3,6 +3,7 @@ import { HTTP } from '@ionic-native/http/ngx';
 import { NavigationExtras, Router } from '@angular/router';
 import { IonLoaderService } from '../services/ion-loader.service';
 import { Post, CryptoData } from '../intefrace/post.model';
+import { Platform, ToastController, AlertController} from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -18,7 +19,7 @@ export class HomePage implements OnInit{
     'X-CMC_PRO_API_KEY': 'cdcfd4be-f0d1-4fcc-a0ce-484887b9117e',
     'Access-Control-Allow-Origin': '*',
   }
-  constructor(public http: HTTP,public router: Router,private ionLoaderService: IonLoaderService) {
+  constructor(public http: HTTP,public router: Router,private ionLoaderService: IonLoaderService,private platform: Platform) {
   }
 
   ngOnInit(){
@@ -28,11 +29,12 @@ export class HomePage implements OnInit{
   //API call to get the list of cryptoCurrency
   getListOfCrypto(){
     this.http.setDataSerializer("json");
-    //this.ionLoaderService.loader();
+    this.ionLoaderService.loader();
     this.showTryAgain = false;
+    this.platform.ready().then(() => { 
     this.http.get(this.cryptoListUrl, {}, this.headers)
        .then(res => {
-          //this.ionLoaderService.dismissLoader();
+          this.ionLoaderService.dismissLoader();
           if(res.status == 200){
             let response : Post = JSON.parse(res.data);
             if(response.status.error_code == 0){
@@ -59,10 +61,11 @@ export class HomePage implements OnInit{
           }
        })
        .catch(error => {
-         //this.ionLoaderService.dismissLoader();
+         this.ionLoaderService.dismissLoader();
          this.showTryAgain = true;
          console.log("--------",error);
        });
+      });
   }
 
   goToDetails(cryptDetails){
