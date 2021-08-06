@@ -19,11 +19,10 @@ export class HomePage implements OnInit{
     'Access-Control-Allow-Origin': '*',
   }
   constructor(public http: HTTP,public router: Router,private ionLoaderService: IonLoaderService) {
-    this.getListOfCrypto();  
   }
 
   ngOnInit(){
-
+    this.getListOfCrypto();
   }
 
   //API call to get the list of cryptoCurrency
