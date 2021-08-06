@@ -11,8 +11,8 @@ import { Platform} from '@ionic/angular';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnInit{
-  
-  responseData ={};
+  title : string = "Crypto Currency List";
+  responseData =[];
   showTryAgain : boolean = false;
   cryptoListUrl : string = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?&limit=20";
   headers = {
@@ -67,14 +67,12 @@ export class HomePage implements OnInit{
        .catch(error => {
          this.ionLoaderService.dismissLoader();
          this.showTryAgain = true;
-         console.log("--------",error);
        });
       });
   }
 
   // Navigate to Crypto Details Page of select crypto currency and share the data with router params
-  goToDetails(cryptDetails){
-    console.log(cryptDetails);
+  goToDetails(cryptDetails : any){
     let ObjToSend : NavigationExtras = cryptDetails;
     this.router.navigate(['/cryto-details'], { 
       state: ObjToSend 
