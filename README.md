@@ -11,3 +11,5 @@ Functionalities Implemented
 7. High Chart.js for displaying chart of that cryptocurrency
 8. If Cryptocurrency list call is failed then show a refersh button to fecth the data again
 9. Few test cases
+
+APK is also shared in root folder.
