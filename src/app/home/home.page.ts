@@ -32,7 +32,7 @@ export class HomePage implements OnInit{
     this.showTryAgain = false;
     this.http.get(this.cryptoListUrl, {}, this.headers)
        .then(res => {
-          this.ionLoaderService.dismissLoader();
+          //this.ionLoaderService.dismissLoader();
           if(res.status == 200){
             let response : Post = JSON.parse(res.data);
             if(response.status.error_code == 0){
@@ -59,8 +59,9 @@ export class HomePage implements OnInit{
           }
        })
        .catch(error => {
-         this.ionLoaderService.dismissLoader();
+         //this.ionLoaderService.dismissLoader();
          this.showTryAgain = true;
+         console.log("--------",error);
          this.ionLoaderService.showError("Unable to process your request");
        });
   }
