@@ -11,11 +11,11 @@ export class CrytoDetailsPage implements OnInit {
   header : any;
   detailProduct:any;
   constructor(public route: ActivatedRoute,private router: Router) { 
-    //Get the data of selected crypto Currency
-    this.detailProduct = this.router.getCurrentNavigation().extras.state;
   }
 
   ngOnInit() {
+     //Get the data of selected crypto Currency
+    this.detailProduct = this.router.getCurrentNavigation().extras.state;
   }
 
   ionViewDidEnter() {
