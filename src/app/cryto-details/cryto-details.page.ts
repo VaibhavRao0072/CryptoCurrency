@@ -66,11 +66,7 @@ export class CrytoDetailsPage implements OnInit {
         categories: [this.detailProduct.name],
       },
       yAxis: {
-        min: 0,
-        title: {
-          text: 'Volume',
-          align: 'high'
-        },
+        min: 0
       },
       series: [{
         type: undefined,
