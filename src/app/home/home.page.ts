@@ -62,7 +62,6 @@ export class HomePage implements OnInit{
          //this.ionLoaderService.dismissLoader();
          this.showTryAgain = true;
          console.log("--------",error);
-         this.ionLoaderService.showError("Unable to process your request");
        });
   }
 
